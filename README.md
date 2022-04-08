@@ -1,67 +1,131 @@
-# DevOps AD 4 - Capacidades de Despliegue
-Repositorio para la actividad 4 de DevOps sobre Capacidades de Despliegue
+# DevOps Reto Final 
+Repositorio para el Reto Final de DevOps
 
 ## Enunciado
-El siguiente paso sería añadir capacidades de despliegue a nuestro servicio, idealmente lanzado automáticamente desde su pipeline de CICD:
+Caso de estudio - Servicio web de consultas
 
-* Desplegar los contenedores en algún servicio que lo provea, como AWS Fargate, un Hashicorp Nomad en self-hosting, o máquinas propias con Docker o Docker Swarm instalado.
-* Aplicar un Deployment en Kubernetes, ya sea propio o la versión de los Cloud providers.
-* Enviar los ejecutables a una o más instancias que los pueden servir, usando servidores web como Tomcat/Catalina (Java) o Unicorn/WSGI (Python).
+Nuestra aplicación es un servidor web que expone una serie de endpoints:
 
-Pero incluso antes de pensar en desplegar, tenemos que pensar en cómo garantizar que nuestro servicio esté funcionando perfectamente una vez eso ocurra: para eso existen los endpoints de disponibilidad (readiness) y estado (liveness).
+- Alta de usuarios, que recibe un email y una contraseña y crea un nuevo usuario en el sistema (Si no existe)
+- Login de usuarios, que para un par de email/contraseña válido devuelve un token válido durante 30 minutos.
+- Los siguientes endpoints necesitan recibir un token válido en la cabecera HTTP “X-Service-Token”
+  - /almacena, que guarda las frases que recibe en una base de datos.
+  - /query, que devuelve el número de veces que una palabra aparece en frases del almacenamiento.
+  - /logout - expira el token
+  - /delete - elimina el usuario y expira el token
 
-Además, es vital poder emitir métricas desde nuestra aplicación, métricas que podrían ser enviadas por un agente a un servicio como Elasticsearch, o recolectadas en modo pull por un servidor de Prometheus.
+El servicio se apoya en una base de datos SQL para almacenar la información operativa: cadenas de búsqueda y usuarios.
 
-Por último, se necesita empezar a centralizar el sistema de logs para su futuro envío a un almacén distribuido de trazas. Para esto, es requisito que las trazas (logs) de la aplicación acaben en la carpeta logs , con el siguiente formato de nombre:
+El servicio almacena métricas de uso para cada endpoint en una base de datos NoSQL como Redis, MongoDB, Memcached, etc:
 
-- Trazas de aplicación: server-YYYYMMDD.log
-- Errores: error-YYYYMMDD.log
+- número total de invocaciones
+- tiempo medio de respuesta
 
+---
 ## Objetivo
 
-Se pide al alumno la codificación de tres nuevos endpoints, no protegidos por autenticación:
+Dado el caso de estudio, se pide al alumno elaborar los siguientes entregables:
+### [Arquitectura de la solución](../docs/Arquitectura.md)
 
-- /ready
-  - HTTP 200 - Si el servicio está preparado para funcionar (base de datos accesible, servicios de terceros conectados, logging y métricas configuradas…)
-  - HTTP 503 - Si existe alguna condición que evite dar servicio.
-  - **NOTA:** En caso de no existir ningún recurso que comprobar (ej. no se ha implementado ningún backend de almacenamiento, ni siquiera un fichero) deberá implementarse alguno para la práctica. Sino, no será correcta.
+Elaborar un documento formal en el que se describa la arquitectura de la solución. Se valorará positivamente una redacción clara y correcta y el uso de diagramas y topologías allá donde una imagen valga más que mil palabras.
 
-- /health
-  - HTTP 200 - Si el servicio está funcionando OK.
-  - HTTP 503- Si el servicio no puede funcionar.
+Software que os puede ayudar a que el resultado sea vistoso:
+- Flowchart Maker & Online Diagram Software (Enlaces a un sitio externo.)
+- Cloudcraft – Draw AWS diagrams (Enlaces a un sitio externo.)
+- https://aws.amazon.com/es/architecture/icons/ (Enlaces a un sitio externo.)
 
-- /metrics
-  - Un diccionario JSON con los valores de las siguientes métricas:
-    - número de peticiones a cada endpoint.
-    - tiempo medio en dar una respuesta (milisegundos) por endpoint.
-    - Número de entradas en base de datos de palabras.
+En concreto, se pide elaborar con detalle los siguientes puntos:
 
-    **Estos valores empiezan a contar desde que arranca el servicio.**
+#### Obligatorios
 
-  Ejemplo (el formato es libre mientras se respete el contenido):
-  
-    ```yalm
-    {
-        "metrics": [
-            {
-                "name": "consulta_avg_response_time",
-                "value" "15.05"
-            },
-            {
-                "name": "consulta_hits",
-                "value": "120"
-            },
-            {
-                "name": "db_entries",
-                "value": "140000"
-            }
-        ]
-    }
-    ```
+Es necesario desarrollar estos dos temas para que esta parte cuente como apta:
+##### Descripción de la arquitectura del sistema
 
-  **Adicionalmente**, se puede añadir también los datos históricos (incluyendo de todas las ejecuciones pasadas), lo que subirá la nota final.
+Definir qué servicios, métodos y tecnologías se necesitan para poder ofrecer una solución:
+- balanceadores de carga
+- Terminadores SSL
+- Bases de datos
+- Sobre qué software correrá el servicio en esas máquinas (por ejemplo, si la solución usa Java, definir si se usará Tomcat, Catalina u otra alternativa)
 
+##### Arquitectura Cloud
 
+Se ha decidido desplegar nuestra infraestructura sobre una nube pública, al carecer de recursos físicos.
+- Selección de proveedor
+- Definición de servicios a usar
+- Cantidad y tipo de instancias
+- Aproximación de costes mensuales de la parte fija (no incluyendo costes variables en función del tráfico o la cantidad de datos almacenados)
+
+#### Opcionales
+
+Desarrollar estos dos puntos es opcional y valdrá para subir la nota. En cualquier caso, su análisis os dará información y perspectiva para otras partes del reto.
+##### Descripción del despliegue
+
+Explicar en detalle cómo se llevará a cabo el despliegue de nuevas versiones de software:
+
+- Elección de repositorio de artefactos, según su tipo
+- Modelo de versionado
+- Estrategia de despliegue sin indisponibilidad
+- Plan de marcha atrás
+
+##### Definición y cálculo de SLAs
+
+Se pide buscar al menos un SLA (Service Level Agreement) para nuestro servicio, detallar cómo se conseguiría medir el indicador asociado (SLI) y cómo podríamos saber qué podemos incumplirlo, con un plan de acción para remediarlo.
+
+### [Entorno de Desarrollo](../docs/Entorno.md)
+
+Para facilitar el onboarding en el proyecto de nuevos desarrolladores, nada mejor que tener un entorno local de desarrollo potente, fiable y que se asemeje lo más posible al entorno final.
+
+Se pide la definición de un entorno exportable de desarrollo.
+
+- Por exportable entendemos que se debe poder subir a control de versiones, descargar y ejecutar sin más. En caso de que se necesite alguna dependencia (software concreto, credenciales, variables de entorno) ésta deberá estar debidamente documentada.
+- Debe estar basado en alguna tecnología de virtualización (contenedores, máquinas virtuales…) que consiga, mediante la ejecución de un comando / script  o similar levantar los servicios requeridos para poder probar localmente, de la forma más rápida posible, los cambios que hagamos a nuestro servicio web.
+
+Se puede usar cualquier tecnología que tenga sentido, mientras el resultado sea el pedido: Se recomienda reutilizar algunos de los creados durante el curso con [Docker Compose](https://docs.docker.com/compose/) o [Vagrant](https://www.vagrantup.com/)
+
+### [Declaración y configuración de infraestructura](../docs/Infra.md)
+
+Algo que sabemos que es imprescindible es que toda nuestra infraestructura, así como su configuración, esté declarada como código fuente en control de versiones.
+
+Se pide declarar la infraestructura como código, usando cualquiera de las herramientas vistas durante el curso (Terraform, Vagrant, AWS Cloudformation o equivalente si se elige otro proveedor) de los sistemas mínimos necesarios para poder ofrecer el servicio descrito de forma óptima desde un punto de vista Devops.
+
+Adicionalmente, hay que añadir playbooks de Ansible (o Salt, o Chef, o lo que estimemos oportuno) para configurar los servicios en la infraestructura definida.
+
+Aquí nos podríamos liar durante días y semanas y no terminar así que. para centrar un poco el tiro, se pide entregar al menos uno de los tres bloques identificados:
+#### Entorno de producción
+
+Los servidores sobre los que se instalará y arrancará el servicio web. Debe existir un esquema de alta disponibilidad para evitar caídas de servicio y posibilitar despliegues sin downtime. Cualquier otra máquina que se considere necesaria debe ser instalada y configurada también).
+
+Se debe instalar el software necesario para poder instalar, arrancar y actualizar el servidor web en cualquier momento.
+#### Entorno de preproducción
+
+Idéntico a producción pero con un único nodo en lugar de los N elegidos para dar mayor estabilidad.
+#### Máquinas asociadas a servicios que dan soporte al ciclo de vida
+
+Instalar y configurar los siguientes servicios
+
+- CICD (Jenkins)
+- Almacenamiento: (Artifactory, Docker Registry, …)
+- Colector de datos de telemetría (ElasticSearch, Prometheus…)
+- [**Opcional**] Si se elige levantar algún servicio en lugar de usar un SaaS del proveedor de cloud elegido, debemos añadir su configuración (por ejemplo, si elegimos usar nuestra propia base de datos en lugar de contratar Amazon RDS)
+
+**OJO**: Aquí hay que tener muy en cuenta que los entornos de producción y preproducción pueden estar en redes diferentes (eso es elección nuestra como operadores, aunque ciertamente una buena práctica). Si esto es así, hay que conseguir que la conectividad desde las máquinas del ciclo de vida hacia los entornos productivos sea posible:
+- Es un **error** generar una infraestructura que dependa de una conectividad inexistente para funcionar.
+
+### [Pipeline CI](../docs/Pipeline.md) 
+
+Diseñar un Pipeline CI en **Jenkins** con las siguientes características **obligatorias**:
+1. Ejecución de tests unitarios
+2. Construcción de artefacto
+3. Almacenamiento artefacto
+4. Despliegue a entorno de pre-producción
+
+Opcionalmente, para subir nota se pueden añadir los pasos necesarios para llegar a producción de forma apropiada:
+1. Tests integración sobre pre-producción (puede ser un smoke-test sobre la infra de preprod)
+2. Despliegue a producción con zero-downtime
+
+Se debe entregar un fichero _Jenkinsfile_ que implemente el flujo pedido y que funcione, de modo que se podría añadir al repositorio y cargarlo como un Multibranch Job, como se hizo en la UF 6.
+
+---
 ## Implementación
 Se ha optado por realizar una implementación del servicio usando Python y Flask mediante peticiones POST y GET al servidor.\
 Se ha considerado que cuando se usa el endpoint "almacena" se está modificando el estado del servidor y por tanto el verbo HTTP correcto es POST.\
