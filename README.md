@@ -25,7 +25,7 @@ El servicio almacena métricas de uso para cada endpoint en una base de datos No
 ## Objetivo
 
 Dado el caso de estudio, se pide al alumno elaborar los siguientes entregables:
-### [Arquitectura de la solución](../docs/Arquitectura)
+### [Arquitectura de la solución](/docs/Arquitectura)
 
 Elaborar un documento formal en el que se describa la arquitectura de la solución. Se valorará positivamente una redacción clara y correcta y el uso de diagramas y topologías allá donde una imagen valga más que mil palabras.
 
