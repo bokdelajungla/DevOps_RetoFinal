@@ -10,4 +10,4 @@ Para las bases de datos vamos a usar SQLite para toda la información operativa 
 
 Nuestra aplicación se desplegará en la infraestructura de AWS (Amazon Web Services), usaremos el servicio AWS Fargate ya que está diseñado para crear aplicaciones sin tener que administrar servidores. El precio sería de 0,0053 USD por GB  por hora, es la mejor opción para una aplicación de estas dimensiones.
 
-![](C:\Users\soren\Documents\GitHub\DevOps_RetoFinal\docs\AWS.png)
+![Arquitectura](AWS.png?raw=true "Arquitectura")
