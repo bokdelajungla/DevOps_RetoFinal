@@ -13,6 +13,7 @@ from sqlalchemy.sql import func
 
 import config.default
 from server import db
+from server import get_hit_count
 from models.entitys import User, Cadena, EndpointUsage
 
 public_bp = Blueprint('public', __name__, template_folder='templates')
@@ -22,8 +23,9 @@ public_bp = Blueprint('public', __name__, template_folder='templates')
 # Endpoint Home Page
 @public_bp.route("/")
 def home():
+    count = get_hit_count()
     current_app.logger.info('Acceso a Home')
-    return "<h1>Servicio Web para Cadenas</h1><br>"
+    return "<h1>Servicio Web para Cadenas</h1><br><p>Has visitado la página {} veces".format(count)
 
 
 @public_bp.route('/login', methods=['GET', 'POST'])

@@ -1,10 +1,7 @@
 # *** VARIABLES *** #
 
-# Nombre del fichero de persistencia
-FILENAME = "cadenas.txt" #Fichero por defecto
-
 # Host
-HOST = "127.0.0.1"
+HOST = "0.0.0.0"
 
 # Puerto
 PORT = 12345 #Puerto por defecto

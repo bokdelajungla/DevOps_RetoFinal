@@ -1,5 +1,4 @@
 @echo off
-set fichero=cadenas.txt
 set /A puerto=12345
 
 :loop
