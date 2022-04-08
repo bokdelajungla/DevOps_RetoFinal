@@ -25,7 +25,7 @@ El servicio almacena métricas de uso para cada endpoint en una base de datos No
 ## Objetivo
 
 Dado el caso de estudio, se pide al alumno elaborar los siguientes entregables:
-### [Arquitectura de la solución](../docs/Arquitectura.md)
+### [Arquitectura de la solución](../docs/Arquitectura)
 
 Elaborar un documento formal en el que se describa la arquitectura de la solución. Se valorará positivamente una redacción clara y correcta y el uso de diagramas y topologías allá donde una imagen valga más que mil palabras.
 
@@ -71,7 +71,7 @@ Explicar en detalle cómo se llevará a cabo el despliegue de nuevas versiones d
 
 Se pide buscar al menos un SLA (Service Level Agreement) para nuestro servicio, detallar cómo se conseguiría medir el indicador asociado (SLI) y cómo podríamos saber qué podemos incumplirlo, con un plan de acción para remediarlo.
 
-### [Entorno de Desarrollo](../docs/Entorno.md)
+### [Entorno de Desarrollo](../docs/Entorno)
 
 Para facilitar el onboarding en el proyecto de nuevos desarrolladores, nada mejor que tener un entorno local de desarrollo potente, fiable y que se asemeje lo más posible al entorno final.
 
@@ -82,7 +82,7 @@ Se pide la definición de un entorno exportable de desarrollo.
 
 Se puede usar cualquier tecnología que tenga sentido, mientras el resultado sea el pedido: Se recomienda reutilizar algunos de los creados durante el curso con [Docker Compose](https://docs.docker.com/compose/) o [Vagrant](https://www.vagrantup.com/)
 
-### [Declaración y configuración de infraestructura](../docs/Infra.md)
+### [Declaración y configuración de infraestructura](../docs/Infra)
 
 Algo que sabemos que es imprescindible es que toda nuestra infraestructura, así como su configuración, esté declarada como código fuente en control de versiones.
 
@@ -111,7 +111,7 @@ Instalar y configurar los siguientes servicios
 **OJO**: Aquí hay que tener muy en cuenta que los entornos de producción y preproducción pueden estar en redes diferentes (eso es elección nuestra como operadores, aunque ciertamente una buena práctica). Si esto es así, hay que conseguir que la conectividad desde las máquinas del ciclo de vida hacia los entornos productivos sea posible:
 - Es un **error** generar una infraestructura que dependa de una conectividad inexistente para funcionar.
 
-### [Pipeline CI](../docs/Pipeline.md) 
+### [Pipeline CI](../docs/Pipeline) 
 
 Diseñar un Pipeline CI en **Jenkins** con las siguientes características **obligatorias**:
 1. Ejecución de tests unitarios
