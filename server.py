@@ -8,8 +8,9 @@ Servicio Web que escucha en el puerto 12345
 # ***IMPORTS*** #
 # Empleamos la biblioteca FLASK para implementar el servicio web
 from flask import Flask
-# Para la base de datos y la encriptacion
+# Para la base de datos y la cache
 from flask_sqlalchemy import SQLAlchemy
+import redis
 
 # Para hacer uso de argumentos
 import argparse
@@ -20,6 +21,7 @@ from logging.handlers import TimedRotatingFileHandler
 
 # Imports de sistema y fecha
 import os
+import time
 
 # Parámetros por defecto y configuración
 import config.default
@@ -30,6 +32,8 @@ cwd = os.getcwd()
 # Manejador de la Base de Datos
 db = SQLAlchemy()
 
+# REDIS Cache
+cache = redis.Redis(host='redis', port=6379)
 
 # *** METODOS *** #
 # Función para crear la app Flask
@@ -110,6 +114,18 @@ def verbose_formatter():
         '[%(asctime)s.%(msecs)d]\t %(levelname)s \t[%(name)s.%(funcName)s:%(lineno)d]\t %(message)s',
         datefmt='%d/%m/%Y %H:%M:%S'
     )
+
+
+def get_hit_count():
+    retries = 5
+    while True:
+        try:
+            return cache.incr('hits')
+        except redis.exceptions.ConnectionError as exc:
+            if retries == 0:
+                raise exc
+            retries -= 1
+            time.sleep(0.5)
 
 
 # Para que se inicie la aplicación al ejecutar el script
