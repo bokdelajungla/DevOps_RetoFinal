@@ -8,6 +8,8 @@ Se han incluido los ficheros Dockerfile y docker-compose.yml que contienen la co
 Para el entorno de Python es necesario también el fichero requirements.txt donde se listan todos paquetes de los que depende nuestra aplicación.
 
 Para desplegar un entorno local en el que trabajar rápidamente, sólo necesitamos ejecutar la instrucción docker-compose up desde el directorio del proyecto para que se creen las imágenes, las monte y se ejecute la aplicación (las subsiguientes ejecuciones solo montaran las imágenes y ejecutaran la aplicación).
+Se lanzará el servicio, el cual será accesible desde la dirección:
+_https://localhost:8000_
 
 A continuación se muestra el contenido de los ficheros de configuración de  docker:
 
