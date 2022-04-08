@@ -299,3 +299,93 @@ FROM endpointusage
 FROM (SELECT cadenas.id AS cadenas_id, cadenas.text AS cadenas_text, cadenas.public_id_fk AS cadenas_public_id_fk 
 FROM cadenas) AS anon_1
 [08/04/2022 20:56:32.894]	 INFO 	[sqlalchemy.engine.Engine._execute_context:1766]	 [generated in 0.00050s] ()
+[08/04/2022 19:18:25.180]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(cadenas_ingresadas, RelationshipProperty)
+[08/04/2022 19:18:25.181]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(tokens_expirados, RelationshipProperty)
+[08/04/2022 19:18:25.181]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(id, Column)
+[08/04/2022 19:18:25.183]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(public_id, Column)
+[08/04/2022 19:18:25.184]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(name, Column)
+[08/04/2022 19:18:25.184]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(password, Column)
+[08/04/2022 19:18:25.186]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) Identified primary key columns: ColumnSet([Column('id', Integer(), table=<users>, primary_key=True, nullable=False)])
+[08/04/2022 19:18:25.187]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) constructed
+[08/04/2022 19:18:25.189]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) _configure_property(ingresada_por, RelationshipProperty)
+[08/04/2022 19:18:25.190]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) _configure_property(id, Column)
+[08/04/2022 19:18:25.191]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) _configure_property(text, Column)
+[08/04/2022 19:18:25.192]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) _configure_property(public_id_fk, Column)
+[08/04/2022 19:18:25.192]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) Identified primary key columns: ColumnSet([Column('id', Integer(), table=<cadenas>, primary_key=True, nullable=False)])
+[08/04/2022 19:18:25.193]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) constructed
+[08/04/2022 19:18:25.195]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) _configure_property(pertenece_a, RelationshipProperty)
+[08/04/2022 19:18:25.196]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) _configure_property(id, Column)
+[08/04/2022 19:18:25.197]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) _configure_property(token_body, Column)
+[08/04/2022 19:18:25.198]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) _configure_property(public_id_fk, Column)
+[08/04/2022 19:18:25.199]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) Identified primary key columns: ColumnSet([Column('id', Integer(), table=<invalidtokens>, primary_key=True, nullable=False)])
+[08/04/2022 19:18:25.199]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) constructed
+[08/04/2022 19:18:25.202]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) _configure_property(id, Column)
+[08/04/2022 19:18:25.203]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) _configure_property(endpoint_name, Column)
+[08/04/2022 19:18:25.203]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) _configure_property(status, Column)
+[08/04/2022 19:18:25.204]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) _configure_property(response_time, Column)
+[08/04/2022 19:18:25.205]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) _configure_property(fecha_acc, Column)
+[08/04/2022 19:18:25.205]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) Identified primary key columns: ColumnSet([Column('id', Integer(), table=<endpointusage>, primary_key=True, nullable=False)])
+[08/04/2022 19:18:25.206]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) constructed
+[08/04/2022 19:20:25.209]	 INFO 	[server.home:27]	 Acceso a Home
+[08/04/2022 19:20:54.739]	 INFO 	[server.home:27]	 Acceso a Home
+[08/04/2022 19:33:04.100]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(cadenas_ingresadas, RelationshipProperty)
+[08/04/2022 19:33:04.101]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(tokens_expirados, RelationshipProperty)
+[08/04/2022 19:33:04.101]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(id, Column)
+[08/04/2022 19:33:04.103]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(public_id, Column)
+[08/04/2022 19:33:04.103]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(name, Column)
+[08/04/2022 19:33:04.104]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(password, Column)
+[08/04/2022 19:33:04.105]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) Identified primary key columns: ColumnSet([Column('id', Integer(), table=<users>, primary_key=True, nullable=False)])
+[08/04/2022 19:33:04.106]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) constructed
+[08/04/2022 19:33:04.109]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) _configure_property(ingresada_por, RelationshipProperty)
+[08/04/2022 19:33:04.109]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) _configure_property(id, Column)
+[08/04/2022 19:33:04.110]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) _configure_property(text, Column)
+[08/04/2022 19:33:04.111]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) _configure_property(public_id_fk, Column)
+[08/04/2022 19:33:04.112]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) Identified primary key columns: ColumnSet([Column('id', Integer(), table=<cadenas>, primary_key=True, nullable=False)])
+[08/04/2022 19:33:04.113]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) constructed
+[08/04/2022 19:33:04.115]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) _configure_property(pertenece_a, RelationshipProperty)
+[08/04/2022 19:33:04.116]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) _configure_property(id, Column)
+[08/04/2022 19:33:04.117]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) _configure_property(token_body, Column)
+[08/04/2022 19:33:04.118]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) _configure_property(public_id_fk, Column)
+[08/04/2022 19:33:04.119]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) Identified primary key columns: ColumnSet([Column('id', Integer(), table=<invalidtokens>, primary_key=True, nullable=False)])
+[08/04/2022 19:33:04.119]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) constructed
+[08/04/2022 19:33:04.121]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) _configure_property(id, Column)
+[08/04/2022 19:33:04.122]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) _configure_property(endpoint_name, Column)
+[08/04/2022 19:33:04.122]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) _configure_property(status, Column)
+[08/04/2022 19:33:04.123]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) _configure_property(response_time, Column)
+[08/04/2022 19:33:04.124]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) _configure_property(fecha_acc, Column)
+[08/04/2022 19:33:04.125]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) Identified primary key columns: ColumnSet([Column('id', Integer(), table=<endpointusage>, primary_key=True, nullable=False)])
+[08/04/2022 19:33:04.125]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) constructed
+[08/04/2022 19:33:12.757]	 INFO 	[server.home:27]	 Acceso a Home
+[08/04/2022 19:33:57.931]	 INFO 	[server.home:27]	 Acceso a Home
+[08/04/2022 19:34:02.590]	 INFO 	[server.home:27]	 Acceso a Home
+[08/04/2022 19:35:39.53]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(cadenas_ingresadas, RelationshipProperty)
+[08/04/2022 19:35:39.54]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(tokens_expirados, RelationshipProperty)
+[08/04/2022 19:35:39.54]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(id, Column)
+[08/04/2022 19:35:39.56]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(public_id, Column)
+[08/04/2022 19:35:39.57]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(name, Column)
+[08/04/2022 19:35:39.58]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) _configure_property(password, Column)
+[08/04/2022 19:35:39.59]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) Identified primary key columns: ColumnSet([Column('id', Integer(), table=<users>, primary_key=True, nullable=False)])
+[08/04/2022 19:35:39.59]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (User|users) constructed
+[08/04/2022 19:35:39.62]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) _configure_property(ingresada_por, RelationshipProperty)
+[08/04/2022 19:35:39.63]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) _configure_property(id, Column)
+[08/04/2022 19:35:39.63]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) _configure_property(text, Column)
+[08/04/2022 19:35:39.64]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) _configure_property(public_id_fk, Column)
+[08/04/2022 19:35:39.65]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) Identified primary key columns: ColumnSet([Column('id', Integer(), table=<cadenas>, primary_key=True, nullable=False)])
+[08/04/2022 19:35:39.66]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (Cadena|cadenas) constructed
+[08/04/2022 19:35:39.68]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) _configure_property(pertenece_a, RelationshipProperty)
+[08/04/2022 19:35:39.68]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) _configure_property(id, Column)
+[08/04/2022 19:35:39.69]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) _configure_property(token_body, Column)
+[08/04/2022 19:35:39.70]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) _configure_property(public_id_fk, Column)
+[08/04/2022 19:35:39.70]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) Identified primary key columns: ColumnSet([Column('id', Integer(), table=<invalidtokens>, primary_key=True, nullable=False)])
+[08/04/2022 19:35:39.71]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (InvalidToken|invalidtokens) constructed
+[08/04/2022 19:35:39.73]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) _configure_property(id, Column)
+[08/04/2022 19:35:39.74]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) _configure_property(endpoint_name, Column)
+[08/04/2022 19:35:39.75]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) _configure_property(status, Column)
+[08/04/2022 19:35:39.76]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) _configure_property(response_time, Column)
+[08/04/2022 19:35:39.77]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) _configure_property(fecha_acc, Column)
+[08/04/2022 19:35:39.78]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) Identified primary key columns: ColumnSet([Column('id', Integer(), table=<endpointusage>, primary_key=True, nullable=False)])
+[08/04/2022 19:35:39.78]	 INFO 	[sqlalchemy.orm.mapper.Mapper._log:1965]	 (EndpointUsage|endpointusage) constructed
+[08/04/2022 19:35:43.75]	 INFO 	[server.home:27]	 Acceso a Home
+[08/04/2022 19:36:07.688]	 INFO 	[server.home:27]	 Acceso a Home
+[08/04/2022 19:36:09.322]	 INFO 	[server.home:27]	 Acceso a Home
+[08/04/2022 19:36:10.825]	 INFO 	[server.home:27]	 Acceso a Home
