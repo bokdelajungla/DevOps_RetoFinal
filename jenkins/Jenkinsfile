@@ -1,0 +1,30 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Verify tools') { 
+            steps {
+                sh '''
+					docker version
+					docker info
+					docker images
+					curl --version
+				'''
+            }
+        }
+		stage('Start test container') {
+			steps {
+				sh 'cd tests'
+				sh 'docker build -t devops_retofinal_tests .'
+				sh 'cd ..'
+				sh 'docker run devops_retofinal_tests -d'
+			}
+		}
+    }
+	post {
+		always {
+			sh 'docker compose stop'
+			sh 'docker compose down'
+			sh 'docker compose ps'
+		}
+	}
+}

@@ -24,10 +24,12 @@ def test_parameters(mock_args):
     port = main()
     assert port == 23456
 
-
+'''
+Este va a fallar si no es desde el docker porque el redis no estará disponible
+'''
 def test_homepage():
-    app = create_app()
-    with app.test_client() as test_client:
+    # Create a test client using the Flask application configured for testing
+    with create_app().test_client() as test_client:
         response = test_client.get('/')
     assert response.status_code == 200
     assert b"Servicio Web para Cadenas" in response.data
