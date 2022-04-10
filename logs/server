@@ -99,3 +99,61 @@ FROM users
 [08/04/2022 16:27:28.836]	 INFO 	[sqlalchemy.engine.Engine._execute_context:1766]	 [generated in 0.00044s] ('35ac440a-b3bf-4a4c-baed-bfed1e563a63', 'testUser', 'sha256$6nSqS22lwIr9jQIc$3cbbf571782a970eb651220118846936a921ac66d3b6fc723de363fbefff06d5')
 [08/04/2022 16:27:28.841]	 INFO 	[sqlalchemy.engine.Engine._commit_impl:1002]	 COMMIT
 [08/04/2022 16:27:53.645]	 INFO 	[server.login_user:31]	 Acceso a Login
+[10/04/2022 14:57:08.57]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:57:08.84]	 INFO 	[server.login_user:31]	 Acceso a Login
+[10/04/2022 14:57:08.118]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:57:08.280]	 INFO 	[server.almacenar:80]	 ALMACENA|main ADDED|35ac440a-b3bf-4a4c-baed-bfed1e563a63
+[10/04/2022 14:57:08.415]	 INFO 	[server.login_user:31]	 Acceso a Login
+[10/04/2022 14:57:08.421]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:57:08.426]	 WARNING 	[server.almacenar:97]	 ALMACENA|No se ha encontrado el parámetro "string"
+[10/04/2022 14:57:08.449]	 INFO 	[server.login_user:31]	 Acceso a Login
+[10/04/2022 14:57:08.454]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:57:08.459]	 WARNING 	[server.almacenar:101]	 ALMACENA|Petición no válida: Use POST
+[10/04/2022 14:57:08.473]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:57:08.492]	 INFO 	[server.login_user:31]	 Acceso a Login
+[10/04/2022 14:57:08.497]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:57:08.620]	 INFO 	[server.almacenar:80]	 ALMACENA|test ADDED|35ac440a-b3bf-4a4c-baed-bfed1e563a63
+[10/04/2022 14:57:08.720]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:57:08.724]	 INFO 	[server.consultar:144]	 CONSULTA|Líneas en las que aparece: 6|35ac440a-b3bf-4a4c-baed-bfed1e563a63
+[10/04/2022 14:57:08.863]	 INFO 	[server.login_user:31]	 Acceso a Login
+[10/04/2022 14:57:08.868]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:57:08.873]	 WARNING 	[server.consultar:164]	 CONSULTA|No se ha encontrado el parámetro string
+[10/04/2022 14:57:08.892]	 INFO 	[server.login_user:31]	 Acceso a Login
+[10/04/2022 14:57:08.897]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:57:08.904]	 WARNING 	[server.consultar:160]	 CONSULTA|El parámetro debe ser una única palabra
+[10/04/2022 14:57:08.925]	 INFO 	[server.login_user:31]	 Acceso a Login
+[10/04/2022 14:57:08.931]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:57:08.936]	 WARNING 	[server.consultar:168]	 CONSULTA|Petición no válida: Use GET
+[10/04/2022 14:57:08.950]	 INFO 	[server.health_check:106]	 Acceso a HealthCheck
+[10/04/2022 14:57:09.96]	 INFO 	[server.home:25]	 Acceso a Home
+[10/04/2022 14:57:09.111]	 INFO 	[server.ready_check:81]	 Acceso a ReadyCheck
+[10/04/2022 14:57:09.116]	 INFO 	[server.loggin_works:99]	 Checking if loggin works as expected
+[10/04/2022 14:59:46.369]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:59:46.401]	 INFO 	[server.login_user:31]	 Acceso a Login
+[10/04/2022 14:59:46.434]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:59:46.580]	 INFO 	[server.almacenar:80]	 ALMACENA|main ADDED|35ac440a-b3bf-4a4c-baed-bfed1e563a63
+[10/04/2022 14:59:46.749]	 INFO 	[server.login_user:31]	 Acceso a Login
+[10/04/2022 14:59:46.754]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:59:46.759]	 WARNING 	[server.almacenar:97]	 ALMACENA|No se ha encontrado el parámetro "string"
+[10/04/2022 14:59:46.779]	 INFO 	[server.login_user:31]	 Acceso a Login
+[10/04/2022 14:59:46.784]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:59:46.790]	 WARNING 	[server.almacenar:101]	 ALMACENA|Petición no válida: Use POST
+[10/04/2022 14:59:46.803]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:59:46.824]	 INFO 	[server.login_user:31]	 Acceso a Login
+[10/04/2022 14:59:46.830]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:59:46.971]	 INFO 	[server.almacenar:80]	 ALMACENA|test ADDED|35ac440a-b3bf-4a4c-baed-bfed1e563a63
+[10/04/2022 14:59:47.96]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:59:47.101]	 INFO 	[server.consultar:144]	 CONSULTA|Líneas en las que aparece: 7|35ac440a-b3bf-4a4c-baed-bfed1e563a63
+[10/04/2022 14:59:47.242]	 INFO 	[server.login_user:31]	 Acceso a Login
+[10/04/2022 14:59:47.247]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:59:47.251]	 WARNING 	[server.consultar:164]	 CONSULTA|No se ha encontrado el parámetro string
+[10/04/2022 14:59:47.271]	 INFO 	[server.login_user:31]	 Acceso a Login
+[10/04/2022 14:59:47.276]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:59:47.282]	 WARNING 	[server.consultar:160]	 CONSULTA|El parámetro debe ser una única palabra
+[10/04/2022 14:59:47.302]	 INFO 	[server.login_user:31]	 Acceso a Login
+[10/04/2022 14:59:47.308]	 INFO 	[server.decorator:29]	 Comprobando Token
+[10/04/2022 14:59:47.312]	 WARNING 	[server.consultar:168]	 CONSULTA|Petición no válida: Use GET
+[10/04/2022 14:59:47.326]	 INFO 	[server.health_check:106]	 Acceso a HealthCheck
+[10/04/2022 14:59:47.354]	 INFO 	[server.home:25]	 Acceso a Home
+[10/04/2022 14:59:47.368]	 INFO 	[server.ready_check:81]	 Acceso a ReadyCheck
+[10/04/2022 14:59:47.372]	 INFO 	[server.loggin_works:99]	 Checking if loggin works as expected

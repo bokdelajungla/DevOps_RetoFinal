@@ -5,102 +5,176 @@
     <title>Coverage report</title>
     <link rel="icon" sizes="32x32" href="favicon_32.png">
     <link rel="stylesheet" href="style.css" type="text/css">
-    <script type="text/javascript" src="jquery.min.js"></script>
-    <script type="text/javascript" src="jquery.ba-throttle-debounce.min.js"></script>
-    <script type="text/javascript" src="jquery.tablesorter.min.js"></script>
-    <script type="text/javascript" src="jquery.hotkeys.js"></script>
-    <script type="text/javascript" src="coverage_html.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(coverage.index_ready);
-    </script>
+    <script type="text/javascript" src="coverage_html.js" defer></script>
 </head>
 <body class="indexfile">
-<div id="header">
+<header>
     <div class="content">
         <h1>Coverage report:
-            <span class="pc_cov">99%</span>
+            <span class="pc_cov">82%</span>
         </h1>
-        <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
+        <div id="help_panel_wrapper">
+            <input id="help_panel_state" type="checkbox">
+            <label for="help_panel_state">
+                <img id="keyboard_icon" src="keybd_closed.png" alt="Show/hide keyboard shortcuts" />
+            </label>
+            <div id="help_panel">
+                <p class="legend">Shortcuts on this page</p>
+                <div>
+                    <p class="keyhelp">
+                        <kbd>n</kbd>
+                        <kbd>s</kbd>
+                        <kbd>m</kbd>
+                        <kbd>x</kbd>
+                        <kbd>c</kbd> &nbsp; change column sorting
+                    </p>
+                </div>
+            </div>
+        </div>
         <form id="filter_container">
             <input id="filter" type="text" value="" placeholder="filter..." />
         </form>
     </div>
-</div>
-<div class="help_panel">
-    <img id="panel_icon" src="keybd_open.png" alt="Hide keyboard shortcuts" />
-    <p class="legend">Hot-keys on this page</p>
-    <div>
-    <p class="keyhelp">
-        <span class="key">n</span>
-        <span class="key">s</span>
-        <span class="key">m</span>
-        <span class="key">x</span>
-        <span class="key">c</span> &nbsp; change column sorting
-    </p>
-    </div>
-</div>
-<div id="index">
-    <table class="index">
+</header>
+<main id="index">
+    <table class="index" data-sortable>
         <thead>
             <tr class="tablehead" title="Click to sort">
-                <th class="name left headerSortDown shortkey_n">Module</th>
-                <th class="shortkey_s">statements</th>
-                <th class="shortkey_m">missing</th>
-                <th class="shortkey_x">excluded</th>
-                <th class="right shortkey_c">coverage</th>
+                <th class="name left" aria-sort="none" data-shortcut="n">Module</th>
+                <th aria-sort="none" data-default-sort-order="descending" data-shortcut="s">statements</th>
+                <th aria-sort="none" data-default-sort-order="descending" data-shortcut="m">missing</th>
+                <th aria-sort="none" data-default-sort-order="descending" data-shortcut="x">excluded</th>
+                <th class="right" aria-sort="none" data-shortcut="c">coverage</th>
             </tr>
         </thead>
+        <tbody>
+            <tr class="file">
+                <td class="name left"><a href="d_1ea838694151cac8_default_py.html">config\default.py</a></td>
+                <td>6</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="6 6">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_5aa296bf2d69868c_private_py.html">endpoints\private.py</a></td>
+                <td>122</td>
+                <td>35</td>
+                <td>0</td>
+                <td class="right" data-ratio="87 122">71%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_5aa296bf2d69868c_public_py.html">endpoints\public.py</a></td>
+                <td>94</td>
+                <td>42</td>
+                <td>0</td>
+                <td class="right" data-ratio="52 94">55%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_e634d7a1dd90e049_entitys_py.html">models\entitys.py</a></td>
+                <td>28</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="28 28">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="server_py.html">server.py</a></td>
+                <td>52</td>
+                <td>0</td>
+                <td>4</td>
+                <td class="right" data-ratio="52 52">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a44f0ac069e85531_test_almacena_py.html">tests\test_almacena.py</a></td>
+                <td>25</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="25 25">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a44f0ac069e85531_test_consulta_py.html">tests\test_consulta.py</a></td>
+                <td>32</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="32 32">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a44f0ac069e85531_test_health_py.html">tests\test_health.py</a></td>
+                <td>6</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="6 6">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a44f0ac069e85531_test_logout_py.html">tests\test_logout.py</a></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 0">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a44f0ac069e85531_test_others_py.html">tests\test_others.py</a></td>
+                <td>21</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="21 21">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a44f0ac069e85531_test_ready_py.html">tests\test_ready.py</a></td>
+                <td>7</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="7 7">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a44f0ac069e85531_test_signup_py.html">tests\test_signup.py</a></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 0">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_c810615cce0f7acb_status_py.html">utils\status.py</a></td>
+                <td>11</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="11 11">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_c810615cce0f7acb_stopwatch_py.html">utils\stopwatch.py</a></td>
+                <td>13</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="13 13">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_c810615cce0f7acb_tests_utils_py.html">utils\tests_utils.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+        </tbody>
         <tfoot>
             <tr class="total">
                 <td class="name left">Total</td>
-                <td>143</td>
-                <td>1</td>
-                <td>6</td>
-                <td class="right" data-ratio="142 143">99%</td>
+                <td>427</td>
+                <td>77</td>
+                <td>4</td>
+                <td class="right" data-ratio="350 427">82%</td>
             </tr>
         </tfoot>
-        <tbody>
-            <tr class="file">
-                <td class="name left"><a href="server_py.html">server.py</a></td>
-                <td>65</td>
-                <td>1</td>
-                <td>6</td>
-                <td class="right" data-ratio="64 65">98%</td>
-            </tr>
-            <tr class="file">
-                <td class="name left"><a href="tests_test_almacena_py.html">tests\test_almacena.py</a></td>
-                <td>18</td>
-                <td>0</td>
-                <td>0</td>
-                <td class="right" data-ratio="18 18">100%</td>
-            </tr>
-            <tr class="file">
-                <td class="name left"><a href="tests_test_consulta_py.html">tests\test_consulta.py</a></td>
-                <td>30</td>
-                <td>0</td>
-                <td>0</td>
-                <td class="right" data-ratio="30 30">100%</td>
-            </tr>
-            <tr class="file">
-                <td class="name left"><a href="tests_test_others_py.html">tests\test_others.py</a></td>
-                <td>30</td>
-                <td>0</td>
-                <td>0</td>
-                <td class="right" data-ratio="30 30">100%</td>
-            </tr>
-        </tbody>
     </table>
     <p id="no_rows">
         No items found using the specified filter.
     </p>
-</div>
-<div id="footer">
+</main>
+<footer>
     <div class="content">
         <p>
-            <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.5</a>,
-            created at 2022-02-13 15:35 +0100
+            <a class="nav" href="https://coverage.readthedocs.io">coverage.py v6.3.2</a>,
+            created at 2022-04-10 15:00 +0200
         </p>
     </div>
-</div>
+</footer>
 </body>
 </html>
