@@ -259,11 +259,17 @@ El formato de salida es el siguiente:
 Si no estuviera disponible enviará un mensaje 503.
 
 ## Tests
-NOTA: No se han implementado los test para verificar el funcionamiento correcto de los tokens.\
-En la carpeta tests se han incluído los test unitarios para probar el funcionamiento del servicio. Se han tenido que rebajar las expectativas de cobertura para poder llegar a implementar todos los endpoints requeridos.
+En la carpeta tests se han incluído los test unitarios para probar el funcionamiento del servicio.\
+NOTA: Se ha conseguido implementar la comprobación del funcionamiento de los tokens, que es una mejora sobre la versión anterior.
+IMPLEMENTADOS:
 * _test_almacena.py_ -- prueba el funcionamiento del endpoint "almacena"
 * _test_consulta.py_ -- prueba el funcionamiento del endpoint "consulta"
+* _test_health.py_ -- prueba el funcionamiento del endpoint "health"
+* _test_ready.py_ -- prueba el funcionamiento del endpoint "ready"
 * _test_others.py_   -- prueba el funcionamiento del resto de funciones de server.py
+POR IMPLEMENTAR:
+* _test_signup.py_ -- prueba el funcionamiento del endpont "signup"
+* _test_logout.py_ -- prueba el funcionamiento del endpont "signup"
 
 Para poder ejecutar los test y ver su cobertura es necesario instalar _pytest_ y _coverage_
 
@@ -273,7 +279,8 @@ Para visualizar el resultado:\
 _coverage report_\
 Para generar un reporte detallado en HTML:\
 _coverage html_\
-El resultado de éste último cuando se ejecutó en nuestra máquina se ha incluido en el repositorio.
+El resultado de éste último cuando se ejecutó en nuestra máquina se ha incluido en el repositorio (Una cobertura del 84%).
+
 
 ## Pruebas
 Se recomienda el uso de Postman para comprobar el funcionamiento de la aplicación.\
