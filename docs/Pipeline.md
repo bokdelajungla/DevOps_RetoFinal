@@ -62,7 +62,7 @@ Indicamos que queremos usar un repositorio e introducimos la dirección donde se
 
 Marcamos que el pipeline se encontrará en un fichero Jenkinsfile.
 
-Ahora tenemos que crear el fichero Jenkinsfile y añadirlo al repositorio.
+Ahora tenemos que crear el fichero Jenkinsfile y añadirlo al repositorio.\
 Jenkinsfile:
 ```yaml
 pipeline {
