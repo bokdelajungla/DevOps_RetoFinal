@@ -85,7 +85,7 @@ pipeline {
         sh 'cd ..'
         sh 'docker run devops_retofinal_tests -d'
       }
-	}
+    }
   }
   post {
     always {
