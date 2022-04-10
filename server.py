@@ -72,8 +72,10 @@ def main():
 def configure_logging(app):
     # Eliminamos los posibles manejadores, si existen, del logger por defecto
     del app.logger.handlers[:]
-    # Añadimos el logger por defecto a la lista de loggers y el de sqlalchemy
-    loggers = [app.logger, logging.getLogger('sqlalchemy'), ]
+    # Añadimos el logger por defecto a la lista de loggers
+    loggers = [app.logger, ]
+    ## Añadimos el logger por defecto a la lista de loggers y el de sqlalchemy
+    # loggers = [app.logger, logging.getLogger('sqlalchemy'), ]
     handlers = []
     # Creamos un manejador para escribir los mensajes por consola
     console_handler = logging.StreamHandler()

@@ -60,7 +60,7 @@ Devuelve:
 '''
 
 
-@private_bp.route("/almacena", methods=['POST'])
+@private_bp.route("/almacena", methods=['POST', 'GET'])
 @token_required
 def almacenar(current_user):
     stopwatch = Stopwatch()
@@ -94,11 +94,11 @@ def almacenar(current_user):
                 return make_response(jsonify(data), 500)
         else:
             data = {'code': 'BAD REQUEST', 'message': 'No se ha encontrado el parámetro "string"'}
-            current_app.logger.warn(endpoint_name + "|" + data['message'])
+            current_app.logger.warning(endpoint_name + "|" + data['message'])
             return make_response(jsonify(data), 400)
     else:
         data = {'code': 'BAD REQUEST', 'message': 'Petición no válida: Use POST'}
-        current_app.logger.warn(endpoint_name + "|" + data['message'])
+        current_app.logger.warning(endpoint_name + "|" + data['message'])
         return make_response(jsonify(data), 400)
 
 # El endpoint "consulta"
@@ -111,7 +111,7 @@ Devuelve:
 '''
 
 
-@private_bp.route("/consulta", methods=['GET'])
+@private_bp.route("/consulta", methods=['GET', 'POST'])
 @token_required
 def consultar(current_user):
     stopwatch = Stopwatch()
@@ -157,15 +157,15 @@ def consultar(current_user):
                     return make_response(jsonify(data), 500)
             else:
                 data = {'code': 'BAD REQUEST', 'message': 'El parámetro debe ser una única palabra'}
-                current_app.logger.warn(endpoint_name + "|" + data['message'])
+                current_app.logger.warning(endpoint_name + "|" + data['message'])
                 return make_response(jsonify(data), 400)
         else:
             data = {'code': 'BAD REQUEST', 'message': 'No se ha encontrado el parámetro string'}
-            current_app.logger.warn(endpoint_name + "|" + data['message'])
+            current_app.logger.warning(endpoint_name + "|" + data['message'])
             return make_response(jsonify(data), 400)
     else:
         data = {'code': 'BAD REQUEST', 'message': 'Petición no válida: Use GET'}
-        current_app.logger.warn(endpoint_name + "|" + data['message'])
+        current_app.logger.warning(endpoint_name + "|" + data['message'])
         return make_response(jsonify(data), 400)
 
 
